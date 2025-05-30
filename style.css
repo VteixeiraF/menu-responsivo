@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.menu {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  float: right;
+}
+
+.menu-list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.menu-list li {
+  position: relative;
+}
+
+.menu-list a {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem;
+}
+
+/* Submenu padrão */
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  top: 100%;
+  left: 0;
+  list-style: none;
+}
+
+/* Submenu no hover (desktop) */
+.has-submenu:hover .submenu {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .menu-list {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .menu-list.show {
+    display: flex;
+  }
+
+  .has-submenu .submenu {
+    position: static;
+  }
+}
+
+/* Indicador de item ativo */
+.menu-list a.active {
+  border-bottom: 2px solid #00f;
+  font-weight: bold;
+}
